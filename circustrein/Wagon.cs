@@ -17,25 +17,25 @@ namespace circustrein
             Animalsinwagon = new List<Animal>();
         }
 
-        public void WagonMaker(Animal ianimal)
+        public void WagonMaker(Animal animal)
         {
             Wagon wagon = new Wagon();
-            AddAnimal(wagon, ianimal);
+            AddAnimal(wagon, animal);
         }
 
-        private void AddAnimal(Wagon wagon, Animal newAnimal)
+        private void AddAnimal(Wagon wagon, Animal animal)
         {
-            wagon.Animalsinwagon.Add(newAnimal);
-            wagon.Capacity += newAnimal.Weight;
+            wagon.Animalsinwagon.Add(animal);
+            wagon.Capacity += animal.Weight;
         }
 
-        public void AnimalsChecker (List<Animal> AnimalsChecker, Animal newanimal)
+        public void AnimalsChecker (List<Animal> AnimalsChecker, Animal animal)
         {
             foreach (Animal wagonAnimal in AnimalsChecker)
             {
                 if (wagonAnimal.Eater == Eater.carnivoor)
                 {
-                    if (SizeChecker(wagonAnimal, newanimal))
+                    if (SizeChecker(wagonAnimal, animal))
                     {
                     
                     }
@@ -43,16 +43,16 @@ namespace circustrein
             }
         }
        
-        public bool SizeChecker(Animal wagonanimal, Animal newanimal)
+        public bool SizeChecker(Animal wagonanimal, Animal animal)
         {
-            if (wagonanimal.Weight <= newanimal.Weight) return true;
+            if (wagonanimal.Weight <= animal.Weight) return true;
             return false;
         }
        
 
-        public bool CapacityCheck(Wagon wagon, Animal ianimal)
+        public bool CapacityCheck(Wagon wagon, Animal animal)
         {
-            if (wagon.Capacity + ianimal.Weight <= 10) return true;
+            if (wagon.Capacity + animal.Weight <= 10) return true;
             return false;
             
         }
